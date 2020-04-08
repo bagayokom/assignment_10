@@ -1,0 +1,29 @@
+from string import punctuation
+
+# Mohamed Bagayoko
+# Assignment 10
+# 4/07/2020
+
+user = input("Enter a word: ")
+
+
+def user_input():
+    if pal_check(user):
+        print("That is a palindrome!")
+    else:
+        print("That is not a palindrome..")
+
+
+def pal_check(line):
+    line = line.translate(str.maketrans('', '', punctuation))
+    line = line.lower()
+    line = line.strip()
+    length = int(len(line))
+    if length == 0 or length == 1:
+        return True
+    elif line[0] != line[-1]:
+        return False
+    else:
+        return pal_check(line[1:-1])
+
+user_input()
